@@ -1,0 +1,14 @@
+in_file - source path with tab delimeted file name 
+outlib - location/path where you want to store tab_sas (output dataset) SAS dataset
+ 
+libname outlib "path";
+ 
+Filename in_file "path/tab.txt" ;
+ 
+proc import datafile=in_file out=outlib.tab_sas
+     dbms=dlm
+     replace;
+     delimiter='09'x;
+    getnames=yes;
+   datarow=2;
+run;
